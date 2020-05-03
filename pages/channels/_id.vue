@@ -26,14 +26,16 @@ export default {
   },
   mounted () {
       const channelID = this.$route.params.id
-      db.collection('channels').doc(channelID).collection('messages').get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
-            this.messages.push({id: doc.id, ...doc.data()})
+        db.collection('channels').doc(channelID).collection('messages')
+        .onSnapshot((snapshot) => {
+            snapshot.docChanges().forEach((change) => {
+                const doc = change.doc
+                if (change.type === 'added') {
+                    this.messages.push({id: doc.id, ...doc.data()})
+                }
             })
-            console.log(this.messages) // 開発用に
         })
-  }
+    }
 }
 </script>
 
