@@ -2,6 +2,19 @@
  <div class="chats-container">
    <Message />
    <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
+   <Message />
  </div>
 </template>
 
@@ -18,6 +31,6 @@ export default {
 
 <style scoped>
 .chats-container {
-    padding: 16px;
+    padding-left: 16px;
 }
 </style>

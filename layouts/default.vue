@@ -15,7 +15,7 @@
 <style>
 * {
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 .app-layout {
@@ -25,7 +25,7 @@
 .sidebar {
  width: 300px;
  background:#4A4141;
- height: 100vh;
+ /* height: 100vh; */
  padding: 20px;
 }
 
