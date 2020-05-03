@@ -1,20 +1,6 @@
 <template>
  <div class="chats-container">
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
-   <Message />
+   <message v-for="message in messages" :key="message" :message="message"/>
  </div>
 </template>
 
@@ -22,8 +8,14 @@
 import Message from '~/components/Message'
 
 export default {
+    props: [
+        'messages'
+    ],
     components: {
         Message
+    },
+    mounted () {
+        console.log(this.messages)
     }
     
 }
