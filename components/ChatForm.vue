@@ -6,14 +6,14 @@
     :visible.sync="dialogVisible"
     width="30%">
     <div class="image-container">
-        <img src="~/assets/google_sign_in.png" />
+        <img src="~/assets/google_sign_in.png" v-on:click="login"/>
     </div>
    </el-dialog>
  </div>
 </template>
 
 <script>
-import { db } from '~/plugins/firebase'
+import { db, firebase } from '~/plugins/firebase'
 import Vue from 'vue'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -44,6 +44,18 @@ export default {
         keyDownedForJPConversion (event) {
             const codeForConversion = 229
             return event.keyCode === codeForConversion
+        },
+        login () {
+            window.alert('ログインするよ')
+            const provider = new firebase.auth.GoogleAuthProvider()
+            firebase.auth().signInWithPopup(provider)
+                .then((result) => {
+                const user = result.user
+                console.log(user)
+                this.dialogVisible = false
+                }).catch((error) => {
+                window.alert(error)
+            })
         }
     }
 }
