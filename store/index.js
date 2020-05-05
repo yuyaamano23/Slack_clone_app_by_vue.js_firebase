@@ -1,9 +1,6 @@
 export const strict = false
 
 export const state = () => ({
-    // user: {
-    //   email: 'test@example.com'
-    // }
     user: null
 })
 
@@ -14,7 +11,13 @@ export const getters = {
 }
 
 export const mutations = {
-    setUser(state, user) {
-        state.user = user
+    setUser(state, payload) {
+        state.user = payload
+    }
+}
+
+export const actions = {
+    setUser(context, user) {
+        context.commit('setUser', user)
     }
 }
